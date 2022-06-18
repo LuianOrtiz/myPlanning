@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 import environ
 # Initialise environment variables
@@ -47,11 +47,11 @@ THIRD_APPS = [
 
 ]
 
-LOCAL_APPS = [
+PROJECT_APPS = [
     'apps.todolist'
 ]
 
-INSTALLED_APPS = THIRD_APPS + DJANGO_APPS  + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_APPS
 
 
 MIDDLEWARE = [
@@ -66,10 +66,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'core.urls'
 
+TEMPLATE_DIR = os.path.join("apps/templates")  # ROOT dir for templates
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
