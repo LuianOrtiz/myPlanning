@@ -19,6 +19,7 @@ venv
 .env
 # other
 .DS_Store
+.vscode
 
 # javascript
 package-lock.json
