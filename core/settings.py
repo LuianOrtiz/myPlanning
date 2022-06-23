@@ -48,7 +48,9 @@ THIRD_APPS = [
 ]
 
 PROJECT_APPS = [
-    'apps.todolist'
+    'apps.todolist.apps.TodolistConfig',
+    'apps.home.apps.HomeConfig'
+    
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_APPS
