@@ -4,7 +4,7 @@ from apps.account.models import Customer
 # Create your models here.
 
 class List(models.Model):
-    list_name = models.CharField(blank=False, default= 'Tareas', max_length=60)
+    list_name = models.CharField(blank=False, default= 'Nueva Lista', max_length=60)
     
     def __str__(self):
         return self.list_name

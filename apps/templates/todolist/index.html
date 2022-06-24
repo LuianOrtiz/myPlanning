@@ -13,9 +13,11 @@
 </head>
 <body>
     <h1>TO DO LIST</h1>
-    <p class="hola">Holitas de mar</p>
-    {% for task in tasks %}
-        <a href="">{{task.list_name}}</a>
-    {% endfor %}
+    <div class="container_list">
+       {% for task in tasks %}
+            <h4>{{task.list}}</h4>
+            <p>{{task.task}}</p>
+        {% endfor %}
+    </div>
 </body>
 </html>
