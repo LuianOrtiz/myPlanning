@@ -49,7 +49,8 @@ THIRD_APPS = [
 
 PROJECT_APPS = [
     'apps.todolist.apps.TodolistConfig',
-    'apps.home.apps.HomeConfig'
+    'apps.home.apps.HomeConfig',
+    'apps.account.apps.AccountConfig'
     
 ]
 

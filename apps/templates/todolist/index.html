@@ -14,5 +14,8 @@
 <body>
     <h1>TO DO LIST</h1>
     <p class="hola">Holitas de mar</p>
+    {% for task in tasks %}
+        <a href="">{{task.list_name}}</a>
+    {% endfor %}
 </body>
 </html>

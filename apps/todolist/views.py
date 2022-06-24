@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django import template
+from apps.todolist.models import List, Task, Step
 # Create your views here.
 def index(request):
-    return render(request, 'todolist/index.html')
+    listas = List.objects.all()
+    return render(request, 'todolist/index.html', {"tasks:": listas})
