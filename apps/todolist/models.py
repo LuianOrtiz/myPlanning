@@ -6,18 +6,17 @@ from django.forms import CharField
 # Create your models here.
 
 class List(models.Model):
-    list_name = CharField(max_length=60)
-    user = models.OneToOneField(User)
+    list_name = models.CharField(blank=False, default= '', max_length=60)
 
 class Task(models.Model):
-    task = CharField(max_length=180)
-    completed = models.BooleanField(default=False)
-    created = models.DateTimeField(auto_now_add=True)
-    finalized = models.DateField()
     list = models.ForeignKey(List, on_delete=models.CASCADE)
+    task = models.CharField(blank=False, default= '',max_length=180)
+    completed = models.BooleanField(default=False)
+    created = models.DateField(auto_now_add=True)
+    finalized = models.DateField(null=True)
 
-class Steps(models.Model):
-    step = CharField(max_length=180)
+class Step(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    step = models.CharField(blank=False, default= '', max_length=180)
     completed = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
-    task = models.ForeignKey(Task, on_delete=models.CASCADE)
