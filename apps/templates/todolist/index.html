@@ -13,11 +13,23 @@
 </head>
 <body>
     <h1>TO DO LIST</h1>
-    <div class="container_list">
-       {% for task in tasks %}
-            <h4>{{task.list}}</h4>
-            <p>{{task.task}}</p>
-        {% endfor %}
-    </div>
+    {% block menulista %}
+        <div class="container_list">
+           {% for list in lists %}
+                <a href=""> <h4>{{list.name}}</h4> </a>
+            {% endfor %}
+        </div>
+    {% endblock menulista %}
+
+
+    {% block create_lista %}
+        <form action=" {% url 'create_list' %}" method="POST">
+            {% csrf_token %}
+
+            <input type="text" name="name" placeholder="Nueva lista">
+            
+            <button>+</button>
+        </form>
+    {% endblock create_lista %}
 </body>
 </html>

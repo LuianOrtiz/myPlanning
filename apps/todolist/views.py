@@ -1,12 +1,15 @@
-from multiprocessing import context
-from django.shortcuts import render
-from apps.todolist.models import List, Task, Step
+from django.shortcuts import render, redirect
+from apps.todolist.models import List
+
 # Create your views here.
 def index(request):
     lists = List.objects.all()
-    tasks = Task.objects.all()
     context = {
-        "lists": lists,
-        "tasks": tasks
+        "lists": lists
     }
     return render(request, 'todolist/index.html', context)
+
+def create_list(request):
+    list = List(name=request.POST['name'])
+    list.save()
+    return redirect('/todolist/')

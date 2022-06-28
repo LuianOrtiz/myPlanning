@@ -1,32 +1,32 @@
 from django.db import models
-from apps.account.models import Customer
+from django.contrib.auth.models import User
+
 
 # Create your models here.
-
 class List(models.Model):
-    list_name = models.CharField(blank=False, default= 'Nueva Lista', max_length=60)
-    
+    name = models.CharField(blank=False,default= 'Nueva Lista', max_length=60)
+
     def __str__(self):
-        return self.list_name
+        return self.name
     
 
 class Task(models.Model):
     list = models.ForeignKey(List, on_delete=models.CASCADE)
-    task = models.CharField(blank=False, default= '',max_length=180)
+    name = models.CharField(blank=False,default='Nueva Tarea',max_length=180)
     completed = models.BooleanField(default=False)
     created = models.DateField(auto_now_add=True)
-    finalized = models.DateField(null=True)
+    finalized = models.DateField(null=True, blank=True)
 
     def __str__(self):
-        return self.task
+        return self.name
     
 
 class Step(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
-    step = models.CharField(blank=False, default= '', max_length=180)
+    name = models.CharField(blank=False,default= 'Nuevo Paso', max_length=180)
     completed = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.step
+        return self.name
     
