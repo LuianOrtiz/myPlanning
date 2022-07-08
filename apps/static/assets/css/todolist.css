@@ -97,15 +97,15 @@
 }
 
 .new__task {
+    width: 330px;
     bottom: 0;
     position: absolute;
-    width: 330px;
     padding: 10px 10px;
     background-color: #555;
 }
 
 .new__task input {
-    margin: 10px 20px;
+    margin: 10px 40px;
     padding: 10px 10px;
 }
 
@@ -134,7 +134,9 @@ div.content {
     #myLinks {
         display: none ;
     }
-    
+    .new__task {
+        width: 94.5%;
+    }
     .sidebar a {float: left;}
     div.content {margin-left: 0;}
 }
@@ -145,5 +147,6 @@ div.content {
         text-align: left;
         float: none;
     }
+    
 }
 
