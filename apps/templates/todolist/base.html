@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/css/todolist.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <nav class="navegation">
+        <h1 id="title">My Plannig</h1>
+        <div class="togglebutton">
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i id="change-icon" class="fa fa-bars"></i>
+            </a>
+        </div>
+        <div class="menu">
+            <ul>
+                <li> <a href="">Inicio</a> </li>
+                <li> <a href="">Iniciar Sesión</a> </li>
+            </ul>
+        </div>
+    </nav>
+    <section>
+        <div class="sidebar" id="myLinks">
+            {% for list in lists %}
+                <a  href=""><i id="change-icon" class="fa fa-chevron-right"></i>{{list.name}}</a>
+            {% endfor %}    
+        </div>
+        <div class="new__task">
+            <form action="">
+                <input type="text" placeholder="Nueva Lista">
+                <button><i class="fa fa-plus" aria-hidden="true"></i></button>
+            </form>
+        </div>
+    </section>
+    <!-- Page content -->
+    <section>
+        <div class="content">
+            <h2>Tareas</h2>
+            <div class="task__content">
+                <div class="task">
+                    <input type="checkbox">
+                    <p>Tarea de uwu</p>
+    
+                </div>
+            </div>
+
+            <div class="task__content">
+                <div class="task">
+                    <input type="checkbox">
+                    <p>Tarea de uwu</p>
+    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <script src="/static/assets/js/collapse.js"></script>
+    </footer>
+</body>
+</html>

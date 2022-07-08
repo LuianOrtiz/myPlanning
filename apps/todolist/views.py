@@ -7,7 +7,7 @@ def index(request):
     context = {
         "lists": lists
     }
-    return render(request, 'todolist/index.html', context)
+    return render(request, 'todolist/base.html', context)
 
 def create_list(request):
     list = List(name=request.POST['name'])
